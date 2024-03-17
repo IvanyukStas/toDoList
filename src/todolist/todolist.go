@@ -3,13 +3,15 @@ TodoList help to do tascks of man
 */
 package todolist
 
+import "time"
+
 
 type user struct {
 	name string
 }
 
 func NewUser(n string) *user{
-	return &user{name: n}
+	return &user{name: n,}
 }
 
 //Getter user name
@@ -26,6 +28,15 @@ type Task struct {
 	title        string
 	description string
 	created string
+}
+
+//Create new task structure
+func NewTask(t, d string) *Task{
+	return&Task{
+		title: t,
+		description: d,
+		created: time.Now().Format("02-01-2006"),
+	}
 }
 
 //getter task title
@@ -57,3 +68,4 @@ func (t *Task) SetDescription(d string){
 func (t *Task) SetCreated(c string){
 	t.created = c
 	}
+
